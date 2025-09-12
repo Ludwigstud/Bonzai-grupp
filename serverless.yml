@@ -1,19 +1,62 @@
-# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+# Namn på din organisation (valfritt)
 org: ludde
-# "service" is the name of this project. This will also be added to your AWS resource names.
+# Namnet på din tjänst
 service: bonzai
 
 provider:
   name: aws
   runtime: nodejs20.x
-  # Uncomment to easily set up a custom domain. Read the docs for more details:
-  # https://www.serverless.com/framework/docs/providers/aws/guide/domains
-  # domain: api.example.com
+  region: eu-north-1
 
+# Funktioner (Lambda)
 functions:
-  hello:
-    handler: handler.hello
+  GetBookings:
+    handler: functions/GetBookings/index.handler
     events:
       - httpApi:
-          path: /
+          # ÄNDRAD: Mer specifik sökväg för att hämta bokningar
+          path: /bookings
           method: get
+
+  BookRoom:
+    handler: functions/BookRoom/index.handler
+    events:
+      - httpApi:
+          # ÄNDRAD: Samma sökväg som GET, men POST för att skapa nytt
+          path: /bookings
+          method: post
+
+  ChangeBooking:
+    handler: functions/ChangeBooking/index.handler
+    events:
+      - httpApi:
+          # ÄNDRAD: Sökväg för att ändra en specifik bokning via dess ID
+          path: /bookings/{id}
+          method: put
+
+  DeleteBooking:
+    handler: functions/DeleteBooking/index.handler
+    events:
+      - httpApi:
+          # ÄNDRAD: Sökväg för att radera en specifik bokning via dess ID
+          path: /bookings/{id}
+          method: delete
+
+# AWS-infrastruktur
+resources:
+  Resources:
+    BonzaiTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        TableName: bonzai
+        AttributeDefinitions:
+          - AttributeName: pk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+        KeySchema:
+          - AttributeName: pk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
