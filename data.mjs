@@ -6,11 +6,11 @@ const docClient = DynamoDBDocumentClient.from(client);
 
 const seedDatabase = async () => {
 	const itemsToPut = [
-		{ pk: "ROOM", sk: "ROOMID#1", roomType : "Single",      price: 500,  available: 7, roomCapacity: 1  },
-		{ pk: "ROOM", sk: "ROOMID#2", roomType : "Double room", price: 1000, available: 7, roomCapacity: 2   },
-		{ pk: "ROOM", sk: "ROOMID#3", roomType : "Suite",       price: 1500, available: 6, roomCapacity: 3 },
+		{ pk: "ROOM", sk: "ROOMID#1", roomType : "Single",      roomId : 1,   price: 500,  available: 7, roomCapacity: 1  },
+		{ pk: "ROOM", sk: "ROOMID#2", roomType : "Double room", roomId : 2,   price: 1000, available: 7, roomCapacity: 2   },
+		{ pk: "ROOM", sk: "ROOMID#3", roomType : "Suite",       roomId : 3,   price: 1500, available: 6, roomCapacity: 3 },
 	];
-
+ 
 	const putRequests = itemsToPut.map((item) => ({
 		PutRequest: {
 			Item: item,
