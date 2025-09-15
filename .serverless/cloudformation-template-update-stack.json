@@ -120,8 +120,8 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "serverless-framework-deployments-eu-north-1-beb2ee40-843f",
-          "S3Key": "serverless/bonzai/dev/1757926036934-2025-09-15T08:47:16.934Z/bonzai.zip"
+          "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
+          "S3Key": "serverless/bonzai/dev/1757946361063-2025-09-15T14:26:01.063Z/bonzai.zip"
         },
         "Handler": "functions/GetBookings/index.handler",
         "Runtime": "nodejs20.x",
@@ -143,8 +143,8 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "serverless-framework-deployments-eu-north-1-beb2ee40-843f",
-          "S3Key": "serverless/bonzai/dev/1757926036934-2025-09-15T08:47:16.934Z/bonzai.zip"
+          "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
+          "S3Key": "serverless/bonzai/dev/1757946361063-2025-09-15T14:26:01.063Z/bonzai.zip"
         },
         "Handler": "functions/BookRoom/index.handler",
         "Runtime": "nodejs20.x",
@@ -166,8 +166,8 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "serverless-framework-deployments-eu-north-1-beb2ee40-843f",
-          "S3Key": "serverless/bonzai/dev/1757926036934-2025-09-15T08:47:16.934Z/bonzai.zip"
+          "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
+          "S3Key": "serverless/bonzai/dev/1757946361063-2025-09-15T14:26:01.063Z/bonzai.zip"
         },
         "Handler": "functions/ChangeBooking/index.handler",
         "Runtime": "nodejs20.x",
@@ -189,8 +189,8 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "serverless-framework-deployments-eu-north-1-beb2ee40-843f",
-          "S3Key": "serverless/bonzai/dev/1757926036934-2025-09-15T08:47:16.934Z/bonzai.zip"
+          "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
+          "S3Key": "serverless/bonzai/dev/1757946361063-2025-09-15T14:26:01.063Z/bonzai.zip"
         },
         "Handler": "functions/DeleteBooking/index.handler",
         "Runtime": "nodejs20.x",
@@ -208,44 +208,44 @@
         "DeleteBookingLogGroup"
       ]
     },
-    "GetBookingsLambdaVersionnrXNpZ1Ru5LORJO4JgFIWsoWGGNCeMqRMkc6Fl3a2I": {
+    "GetBookingsLambdaVersionUlvy3FncK1VBfrlnOtPiKVbi1f5gIhIn9f8vubb3M": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetBookingsLambdaFunction"
         },
-        "CodeSha256": "ejaOwBMau7QNiH2SDrTnOPfvqsinFRDwfPv9/uh7hCQ="
+        "CodeSha256": "MgmiycnqvL2xLGtyyacsVkQw9V680StzOvqeH8LKIZU="
       }
     },
-    "BookRoomLambdaVersionSZDH1TmiqkDVSj1cLaovG4RIAHJeWKwAL8w9K6Sl7Q": {
+    "BookRoomLambdaVersionxfCq3ItYj4nNWz461KkzzWLtbFbYpX3uR0WRsTY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "BookRoomLambdaFunction"
         },
-        "CodeSha256": "ejaOwBMau7QNiH2SDrTnOPfvqsinFRDwfPv9/uh7hCQ="
+        "CodeSha256": "MgmiycnqvL2xLGtyyacsVkQw9V680StzOvqeH8LKIZU="
       }
     },
-    "ChangeBookingLambdaVersionsMu7jGFyxstHKoV2ZASkckx2rhyuNZTqx5UibBGg": {
+    "ChangeBookingLambdaVersionmXJKNYReWbJ3OxtggRGRBxDKwjpjxqRNO7zhjOgms": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ChangeBookingLambdaFunction"
         },
-        "CodeSha256": "ejaOwBMau7QNiH2SDrTnOPfvqsinFRDwfPv9/uh7hCQ="
+        "CodeSha256": "MgmiycnqvL2xLGtyyacsVkQw9V680StzOvqeH8LKIZU="
       }
     },
-    "DeleteBookingLambdaVersion0KFSSRKD8Zmw3JNl89n14Fnm8lHzMUV36HmgTtBWgo": {
+    "DeleteBookingLambdaVersionkQNlAdvqiLWWOjqWSbeKMv0nEDixx1tmq6he8qQypE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeleteBookingLambdaFunction"
         },
-        "CodeSha256": "ejaOwBMau7QNiH2SDrTnOPfvqsinFRDwfPv9/uh7hCQ="
+        "CodeSha256": "MgmiycnqvL2xLGtyyacsVkQw9V680StzOvqeH8LKIZU="
       }
     },
     "HttpApi": {
@@ -598,7 +598,7 @@
   },
   "Outputs": {
     "ServerlessDeploymentBucketName": {
-      "Value": "serverless-framework-deployments-eu-north-1-beb2ee40-843f",
+      "Value": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
       "Export": {
         "Name": "sls-bonzai-dev-ServerlessDeploymentBucketName"
       }
@@ -606,7 +606,7 @@
     "GetBookingsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetBookingsLambdaVersionnrXNpZ1Ru5LORJO4JgFIWsoWGGNCeMqRMkc6Fl3a2I"
+        "Ref": "GetBookingsLambdaVersionUlvy3FncK1VBfrlnOtPiKVbi1f5gIhIn9f8vubb3M"
       },
       "Export": {
         "Name": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
@@ -615,7 +615,7 @@
     "BookRoomLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "BookRoomLambdaVersionSZDH1TmiqkDVSj1cLaovG4RIAHJeWKwAL8w9K6Sl7Q"
+        "Ref": "BookRoomLambdaVersionxfCq3ItYj4nNWz461KkzzWLtbFbYpX3uR0WRsTY"
       },
       "Export": {
         "Name": "sls-bonzai-dev-BookRoomLambdaFunctionQualifiedArn"
@@ -624,7 +624,7 @@
     "ChangeBookingLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ChangeBookingLambdaVersionsMu7jGFyxstHKoV2ZASkckx2rhyuNZTqx5UibBGg"
+        "Ref": "ChangeBookingLambdaVersionmXJKNYReWbJ3OxtggRGRBxDKwjpjxqRNO7zhjOgms"
       },
       "Export": {
         "Name": "sls-bonzai-dev-ChangeBookingLambdaFunctionQualifiedArn"
@@ -633,7 +633,7 @@
     "DeleteBookingLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeleteBookingLambdaVersion0KFSSRKD8Zmw3JNl89n14Fnm8lHzMUV36HmgTtBWgo"
+        "Ref": "DeleteBookingLambdaVersionkQNlAdvqiLWWOjqWSbeKMv0nEDixx1tmq6he8qQypE"
       },
       "Export": {
         "Name": "sls-bonzai-dev-DeleteBookingLambdaFunctionQualifiedArn"
