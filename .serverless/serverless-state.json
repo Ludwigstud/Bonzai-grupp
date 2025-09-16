@@ -139,7 +139,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
-                "S3Key": "serverless/bonzai/dev/1757950568365-2025-09-15T15:36:08.365Z/bonzai.zip"
+                "S3Key": "serverless/bonzai/dev/1758012248966-2025-09-16T08:44:08.966Z/bonzai.zip"
               },
               "Handler": "functions/GetBookings/index.handler",
               "Runtime": "nodejs20.x",
@@ -162,7 +162,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
-                "S3Key": "serverless/bonzai/dev/1757950568365-2025-09-15T15:36:08.365Z/bonzai.zip"
+                "S3Key": "serverless/bonzai/dev/1758012248966-2025-09-16T08:44:08.966Z/bonzai.zip"
               },
               "Handler": "functions/BookRoom/index.handler",
               "Runtime": "nodejs20.x",
@@ -185,7 +185,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
-                "S3Key": "serverless/bonzai/dev/1757950568365-2025-09-15T15:36:08.365Z/bonzai.zip"
+                "S3Key": "serverless/bonzai/dev/1758012248966-2025-09-16T08:44:08.966Z/bonzai.zip"
               },
               "Handler": "functions/ChangeBooking/index.handler",
               "Runtime": "nodejs20.x",
@@ -208,7 +208,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-eu-north-1-8ea7bb3c-056e",
-                "S3Key": "serverless/bonzai/dev/1757950568365-2025-09-15T15:36:08.365Z/bonzai.zip"
+                "S3Key": "serverless/bonzai/dev/1758012248966-2025-09-16T08:44:08.966Z/bonzai.zip"
               },
               "Handler": "functions/DeleteBooking/index.handler",
               "Runtime": "nodejs20.x",
@@ -226,44 +226,44 @@
               "DeleteBookingLogGroup"
             ]
           },
-          "GetBookingsLambdaVersionEbLu0j2d3COMftMJ23Wzyd0NGztdbKugoshkjFYRG4": {
+          "GetBookingsLambdaVersionTDTJ0AFJLzmzAlbQy15jFG8i97dFVHWu7xqauuw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetBookingsLambdaFunction"
               },
-              "CodeSha256": "wKomrCXi0OuU6BBgwE6T9TPmj81kNub49LRnCb5Dz4o="
+              "CodeSha256": "EvB1hxA+Gtgs/ra994j4RFuxTHKdAAooc1ZKwP88p98="
             }
           },
-          "BookRoomLambdaVersionpUF5UKmaA5451zfMr3oMdb4j5OgBTkNAA8OjSvMt58": {
+          "BookRoomLambdaVersionehPMtR0B9WgpMrdXYRKscYVp0WVAclbMAgpkPFWd8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "BookRoomLambdaFunction"
               },
-              "CodeSha256": "wKomrCXi0OuU6BBgwE6T9TPmj81kNub49LRnCb5Dz4o="
+              "CodeSha256": "EvB1hxA+Gtgs/ra994j4RFuxTHKdAAooc1ZKwP88p98="
             }
           },
-          "ChangeBookingLambdaVersionDdKutbjOjVBssOzAGB8JTSigz7y8VBUYcn3dN778I": {
+          "ChangeBookingLambdaVersionci2GWtU0Yw84At0PWyYyiZglPh2N05wC5UM8dcqfo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ChangeBookingLambdaFunction"
               },
-              "CodeSha256": "wKomrCXi0OuU6BBgwE6T9TPmj81kNub49LRnCb5Dz4o="
+              "CodeSha256": "EvB1hxA+Gtgs/ra994j4RFuxTHKdAAooc1ZKwP88p98="
             }
           },
-          "DeleteBookingLambdaVersionGrbivKCrmloT6HFhAmy5TKUWwA95m5OPKLnZuOfw": {
+          "DeleteBookingLambdaVersionHVk4gNBrGy9jdgoBvwslTytlJz8d2UgJILSU35c8gEQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteBookingLambdaFunction"
               },
-              "CodeSha256": "wKomrCXi0OuU6BBgwE6T9TPmj81kNub49LRnCb5Dz4o="
+              "CodeSha256": "EvB1hxA+Gtgs/ra994j4RFuxTHKdAAooc1ZKwP88p98="
             }
           },
           "HttpApi": {
@@ -612,7 +612,7 @@
           "GetBookingsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetBookingsLambdaVersionEbLu0j2d3COMftMJ23Wzyd0NGztdbKugoshkjFYRG4"
+              "Ref": "GetBookingsLambdaVersionTDTJ0AFJLzmzAlbQy15jFG8i97dFVHWu7xqauuw"
             },
             "Export": {
               "Name": "sls-bonzai-dev-GetBookingsLambdaFunctionQualifiedArn"
@@ -621,7 +621,7 @@
           "BookRoomLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "BookRoomLambdaVersionpUF5UKmaA5451zfMr3oMdb4j5OgBTkNAA8OjSvMt58"
+              "Ref": "BookRoomLambdaVersionehPMtR0B9WgpMrdXYRKscYVp0WVAclbMAgpkPFWd8"
             },
             "Export": {
               "Name": "sls-bonzai-dev-BookRoomLambdaFunctionQualifiedArn"
@@ -630,7 +630,7 @@
           "ChangeBookingLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ChangeBookingLambdaVersionDdKutbjOjVBssOzAGB8JTSigz7y8VBUYcn3dN778I"
+              "Ref": "ChangeBookingLambdaVersionci2GWtU0Yw84At0PWyYyiZglPh2N05wC5UM8dcqfo"
             },
             "Export": {
               "Name": "sls-bonzai-dev-ChangeBookingLambdaFunctionQualifiedArn"
@@ -639,7 +639,7 @@
           "DeleteBookingLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteBookingLambdaVersionGrbivKCrmloT6HFhAmy5TKUWwA95m5OPKLnZuOfw"
+              "Ref": "DeleteBookingLambdaVersionHVk4gNBrGy9jdgoBvwslTytlJz8d2UgJILSU35c8gEQ"
             },
             "Export": {
               "Name": "sls-bonzai-dev-DeleteBookingLambdaFunctionQualifiedArn"
@@ -703,7 +703,7 @@
         "timeout": 6,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "GetBookingsLambdaVersionEbLu0j2d3COMftMJ23Wzyd0NGztdbKugoshkjFYRG4"
+        "versionLogicalId": "GetBookingsLambdaVersionTDTJ0AFJLzmzAlbQy15jFG8i97dFVHWu7xqauuw"
       },
       "BookRoom": {
         "handler": "functions/BookRoom/index.handler",
@@ -723,7 +723,7 @@
         "timeout": 6,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "BookRoomLambdaVersionpUF5UKmaA5451zfMr3oMdb4j5OgBTkNAA8OjSvMt58"
+        "versionLogicalId": "BookRoomLambdaVersionehPMtR0B9WgpMrdXYRKscYVp0WVAclbMAgpkPFWd8"
       },
       "ChangeBooking": {
         "handler": "functions/ChangeBooking/index.handler",
@@ -743,7 +743,7 @@
         "timeout": 6,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "ChangeBookingLambdaVersionDdKutbjOjVBssOzAGB8JTSigz7y8VBUYcn3dN778I"
+        "versionLogicalId": "ChangeBookingLambdaVersionci2GWtU0Yw84At0PWyYyiZglPh2N05wC5UM8dcqfo"
       },
       "DeleteBooking": {
         "handler": "functions/DeleteBooking/index.handler",
@@ -763,7 +763,7 @@
         "timeout": 6,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "DeleteBookingLambdaVersionGrbivKCrmloT6HFhAmy5TKUWwA95m5OPKLnZuOfw"
+        "versionLogicalId": "DeleteBookingLambdaVersionHVk4gNBrGy9jdgoBvwslTytlJz8d2UgJILSU35c8gEQ"
       }
     },
     "resources": {
@@ -820,7 +820,7 @@
     "artifact": "D:\\Bonzai-Grupp\\Bonzai-grupp\\.serverless\\bonzai.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/bonzai/dev/1757950568365-2025-09-15T15:36:08.365Z",
+    "artifactDirectoryName": "serverless/bonzai/dev/1758012248966-2025-09-16T08:44:08.966Z",
     "artifact": "bonzai.zip"
   }
 }

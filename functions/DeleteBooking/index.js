@@ -1,45 +1,65 @@
 import { client } from "../../services/db.js";
-import { GetItemCommand, ScanCommand, DeleteItemCommand, PutItemCommand, BatchWriteItemCommand } from "@aws-sdk/client-dynamodb";
+import { 
+  GetItemCommand, 
+  QueryCommand, 
+  PutItemCommand, 
+  BatchWriteItemCommand 
+} from "@aws-sdk/client-dynamodb";
 import { sendResponse } from "../../services/response.js";
 
+
+
 const BOOKINGS_TABLE = "bonzai";
+
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
 export const handler = async (event) => {
   try {
+
     const { id } = event.pathParameters;
     if (!id) return sendResponse(400, { message: "Missing bookingId" });
 
-    // Hämta TOTAL-rad
+    
     const totalResult = await client.send(new GetItemCommand({
       TableName: BOOKINGS_TABLE,
       Key: { pk: { S: `BOOKING#${id}` }, sk: { S: "TOTAL" } }
     }));
 
-    if (!totalResult.Item) return sendResponse(404, { message: "Booking not found" });
+    if (!totalResult.Item) {
+      return sendResponse(404, { message: "Booking not found" });
+    }
 
+   
     const checkInDate = new Date(totalResult.Item.startDate.S);
     const diffDays = Math.ceil((checkInDate - new Date()) / MS_PER_DAY);
-    if (diffDays < 2) return sendResponse(400, { message: "Booking cannot be canceled less than 2 days before check-in" });
+    if (diffDays < 2) {
+      return sendResponse(400, { message: "Booking cannot be canceled less than 2 days before check-in" });
+    }
 
-    // Hämta alla rumsbokningar med Scan + begins_with
-    const scanResult = await client.send(new ScanCommand({
+    
+    const queryResult = await client.send(new QueryCommand({
       TableName: BOOKINGS_TABLE,
-      FilterExpression: "begins_with(sk, :skPrefix)",
-      ExpressionAttributeValues: { ":skPrefix": { S: `ROOM#${id}` } }
+      KeyConditionExpression: "pk = :pk AND begins_with(sk, :skPrefix)",
+      ExpressionAttributeValues: {
+        ":pk": { S: "BOOKING" },
+        ":skPrefix": { S: `ROOM#${id}` }
+      }
     }));
 
-    const bookingRooms = scanResult.Items || [];
+    const bookingRooms = queryResult.Items || [];
 
-    // Uppdatera tillgänglighet
-    await Promise.all(bookingRooms.map(async roomItem => {
+    
+    await Promise.all(bookingRooms.map(async (roomItem) => {
       const roomType = Number(roomItem.roomType.N);
+
       const room = await client.send(new GetItemCommand({
         TableName: BOOKINGS_TABLE,
         Key: { pk: { S: "ROOM" }, sk: { S: `ROOMID#${roomType}` } }
       }));
+
       if (room.Item) {
         const available = Number(room.Item.available.N) + 1;
+
         await client.send(new PutItemCommand({
           TableName: BOOKINGS_TABLE,
           Item: {
@@ -53,18 +73,27 @@ export const handler = async (event) => {
       }
     }));
 
-    // Ta bort TOTAL + rumsbokningar med BatchWrite
+   
     const deleteRequests = [
+     
       { DeleteRequest: { Key: { pk: { S: `BOOKING#${id}` }, sk: { S: "TOTAL" } } } },
-      ...bookingRooms.map(item => ({ DeleteRequest: { Key: { pk: item.pk, sk: item.sk } } }))
+      ...bookingRooms.map(item => ({
+        DeleteRequest: {
+          Key: { pk: { S: item.pk.S }, sk: { S: item.sk.S } }
+        }
+      }))
     ];
 
-    // DynamoDB BatchWrite max 25 items per request
+    
     const batches = [];
-    while (deleteRequests.length) batches.push(deleteRequests.splice(0, 25));
+    while (deleteRequests.length) {
+      batches.push(deleteRequests.splice(0, 25));
+    }
 
     for (const batch of batches) {
-      await client.send(new BatchWriteItemCommand({ RequestItems: { [BOOKINGS_TABLE]: batch } }));
+      await client.send(new BatchWriteItemCommand({ 
+        RequestItems: { [BOOKINGS_TABLE]: batch } 
+      }));
     }
 
     return sendResponse(200, { message: "Booking canceled successfully" });
