@@ -7,6 +7,31 @@ import {
 import { sendResponse } from "../../services/response.js";
 import crypto from "crypto";
 
+// POST example body
+// {
+//     "name": "billy bob",
+//     "email": "billy@domain.com",
+//     "startDate": "2025-11-23",
+//     "endDate": "2025-11-28",
+//     "rooms":[
+//         {
+//             "roomType": 1,
+//             "people": 1
+//         },
+//         {
+//             "roomType": 3,
+//             "people": 2
+//         },
+//         {
+//             "roomType": 2,
+//             "people": 1
+//         }
+//     ]
+// }
+
+
+
+
 export const handler = async (event) => {
   try {
     const { name, email, startDate, endDate, rooms } = JSON.parse(event.body);
